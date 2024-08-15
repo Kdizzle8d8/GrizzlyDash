@@ -6,7 +6,7 @@
 	export { className as class };
 	export let prefixIcon: string | undefined = undefined;
 	export let suffixIcon: string | undefined = undefined;
-	export let placeholder: string = undefined;
+	export let placeholder: string = '';
 	export let label: string | undefined = undefined;
 
 	let iconColor = 'text-orange-500';
@@ -17,7 +17,7 @@
 		{#if label}
 			<label
 				for={label}
-				class="absolute -top-2 left-2 z-10 bg-background px-1 text-sm font-medium text-foreground"
+				class="absolute -top-2 left-2 z-10 bg-background px-1 text-sm font-semibold text-foreground"
 				>{label}</label
 			>
 		{/if}

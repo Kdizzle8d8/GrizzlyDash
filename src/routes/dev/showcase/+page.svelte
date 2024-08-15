@@ -1,10 +1,19 @@
 <script>
 	import Button from '$lib/components/ui/themed/Button.svelte';
+	import Card from '$lib/components/ui/themed/Card.svelte';
+	import Input from '$lib/components/ui/themed/Input.svelte';
 </script>
 
-<div class="h-screen w-screen bg-background">
-	<div class="flex w-full flex-col items-center justify-center">
-		<h1 class="mt-10 text-4xl font-bold">Showcase</h1>
-	</div>
-	<Button className="mt-10">Click me</Button>
+<div class="mt-10">
+	<Button>asdf</Button>
+	<Input />
+	<Input label="With Label" />
+	<Input label="With Icon" prefixIcon="mdi:email-outline" />
+	<Card class="w-[20rem]" title="Example Card" description="Example Description">
+		<img
+			src="https://gohs.conroeisd.net/wp-content/uploads/sites/76/2018/11/GOHS-1125x1500.jpg"
+			alt="Example Image"
+		/>
+		Content Goes Here!
+	</Card>
 </div>

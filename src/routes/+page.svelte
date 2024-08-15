@@ -1,7 +1,5 @@
 <script>
-	import Button from '$lib/components/ui/themed/Button.svelte';
-	import Input from '$lib/components/ui/themed/Input.svelte';
+	import { page } from '$app/stores';
 </script>
 
-<Button>asdf</Button>
-<Input class="mt-10" />
+{$page.url.pathname}
