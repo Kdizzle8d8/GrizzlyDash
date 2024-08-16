@@ -4,12 +4,16 @@
 
 	let className = '';
 	export { className as class };
-	export let prefixIcon: string | undefined = undefined;
-	export let suffixIcon: string | undefined = undefined;
 	export let placeholder: string = '';
 	export let label: string | undefined = undefined;
 	export let bg = 'bg-background';
+
 	let iconColor = 'text-orange-500';
+	let showPassword = false;
+
+	function togglePassword() {
+		showPassword = !showPassword;
+	}
 </script>
 
 <div class="relative {className} inline-flex flex-col">
@@ -21,25 +25,18 @@
 				>{label}</label
 			>
 		{/if}
-		{#if prefixIcon}
+		<button type="button" on:click={togglePassword} class="absolute left-2 focus:outline-none">
 			<Icon
-				icon={prefixIcon}
-				class="absolute left-2 top-1/2 size-5 -translate-y-1/2 transition-colors {iconColor} "
+				icon={showPassword ? 'mdi:eye-off' : 'mdi:eye'}
+				class="size-6  transition-colors {iconColor}"
 			/>
-		{/if}
+		</button>
 		<input
+			type={showPassword ? 'text' : 'password'}
 			on:focus={() => (iconColor = 'text-blue-500')}
 			on:blur={() => (iconColor = 'text-orange-500')}
-			class={` ${bg} w-full rounded-md border border-primary p-2 pt-3 transition-colors focus:border-blue-600 focus:outline-none ${
-				prefixIcon ? 'pl-8' : ''
-			} ${suffixIcon ? 'pr-8' : ''}`}
+			class="{bg} w-full rounded-md border border-primary p-2 pl-10 transition-colors focus:border-blue-600 focus:outline-none"
 			{placeholder}
 		/>
-		{#if suffixIcon}
-			<Icon
-				icon={suffixIcon}
-				class="absolute right-2 size-5 text-muted-foreground transition-colors {iconColor}"
-			></Icon>
-		{/if}
 	</div>
 </div>

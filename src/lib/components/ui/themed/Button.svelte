@@ -1,15 +1,14 @@
 <script lang="ts">
 	import { Button } from '../button';
 
-	export let variant: 'primary' | 'secondary' = 'primary';
+	export let type: 'button' | 'submit' | 'reset' = 'button';
 
 	let className = '';
-
-	$: buttonClass =
-		variant === 'primary' ? 'bg-primary text-primary-foreground' : 'bg-blue-500 text-white';
+	export { className as class };
 </script>
 
 <button
-	class={`${className} ${buttonClass} m-2 rounded-md p-2 px-4 shadow-md transition-all hover:brightness-110 active:scale-95`}
+	{type}
+	class="{className} rounded-md p-2 px-4 text-white shadow-md transition-all duration-75 hover:brightness-110 active:scale-95"
 	><slot></slot></button
 >
