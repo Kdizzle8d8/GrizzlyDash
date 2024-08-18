@@ -7,7 +7,8 @@
 	export let placeholder: string = '';
 	export let label: string | undefined = undefined;
 	export let bg = 'bg-background';
-
+	export let name: string;
+	export let error: string | undefined = undefined;
 	let iconColor = 'text-orange-500';
 	let showPassword = false;
 
@@ -32,11 +33,17 @@
 			/>
 		</button>
 		<input
+			{name}
 			type={showPassword ? 'text' : 'password'}
 			on:focus={() => (iconColor = 'text-blue-500')}
 			on:blur={() => (iconColor = 'text-orange-500')}
-			class="{bg} w-full rounded-md border border-primary p-2 pl-10 transition-colors focus:border-blue-600 focus:outline-none"
+			class="{bg} w-full rounded-md border p-2 pl-10 transition-colors focus:outline-none {error
+				? 'border-red-500'
+				: 'border-primary focus:border-blue-600'}"
 			{placeholder}
 		/>
 	</div>
+	{#if error}
+		<p class="mt-1 text-xs text-red-500">{error}</p>
+	{/if}
 </div>

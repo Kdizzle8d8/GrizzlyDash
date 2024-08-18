@@ -3,9 +3,28 @@
 	export let className: string = '';
 	export { className as class };
 	export let alt: string = 'Grizzly GO Logo';
+	export let variant: 'go' | 'abbrv' | 'icon' = 'go';
 </script>
 
-<img src="/images/GOLogo.png" {alt} width={size} height={size} class="{className}object-contain" />
+{#if variant === 'go'}
+	<img
+		src="/images/GOLogo.png"
+		{alt}
+		width={size}
+		height={size}
+		class="{className}object-contain"
+	/>
+{:else if variant === 'abbrv'}
+	<img src="/images/gohs.png" {alt} width={size} height={size} class="{className}object-contain" />
+{:else if variant === 'icon'}
+	<img
+		src="/images/IconOnly.png"
+		{alt}
+		width={size}
+		height={size}
+		class="{className}object-contain"
+	/>
+{/if}
 
 <style>
 	img {

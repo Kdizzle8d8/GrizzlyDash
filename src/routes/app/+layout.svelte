@@ -3,6 +3,8 @@
 	import { fade } from 'svelte/transition';
 	import { browser } from '$app/environment';
 	import BottomNav from '$lib/components/ui/themed/BottomNav.svelte';
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	let size = 0;
 	$: if (browser) size = window.innerWidth;
 </script>
